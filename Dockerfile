@@ -23,4 +23,4 @@ COPY src ./src
 EXPOSE 8000
 
 ENTRYPOINT ["python", "-m", "awslambdaric"]
-CMD ["app.handler"]
+CMD ["sa.app.handler"]
