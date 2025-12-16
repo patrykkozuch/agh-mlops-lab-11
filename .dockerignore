@@ -1,0 +1,10 @@
+.github/
+.venv/
+__pycache__/
+artifacts/
+buid/
+*.egg-info/
+.pre-commit-config.yaml
+compose.yml
+Dockerfile*
+tests/
