@@ -15,15 +15,3 @@ class Settings(BaseSettings):
     onnx_classifier_path: str = MODELS_PATH + "classifier.onnx"
     tokenizer_dir: str = MODELS_PATH + "tokenizer"
     onnx_embedding_model_path: str = MODELS_PATH + "embedding_model.onnx"
-
-    def __init__(self, **data):
-        super().__init__(**data)
-        self.create_dirs()
-
-    def create_dirs(self):
-        import os
-
-        os.makedirs(self.MODELS_PATH, exist_ok=True)
-        os.makedirs(self.ARTIFACTS_PATH, exist_ok=True)
-        os.makedirs(self.tokenizer_dir, exist_ok=True)
-
