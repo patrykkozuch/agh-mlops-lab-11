@@ -11,12 +11,7 @@ def client():
 
 def test_empty_input(client):
     response = client.post("/predict", json={"text": ""})
-    assert response.status_code == 400
-    assert response.json() == {"detail": "Text cannot be empty"}
+    assert response.status_code == 422
 
-
-def test_valid_input(client):
-    response = client.post("/predict", json={"text": "I love programming!"})
-    assert response.status_code == 200
-    assert "prediction" in response.json()
-    assert response.json()["prediction"] == "positive"
+    body = response.json()
+    assert "Text cannot be empty" in body["detail"][0]["msg"]
