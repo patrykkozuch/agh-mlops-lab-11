@@ -20,6 +20,6 @@ COPY --from=builder /app/.venv /app/.venv
 COPY models ./models
 COPY src ./src
 
-EXPOSE 8000a
+EXPOSE 8000
 
 CMD ["uvicorn", "src.sa.app:app", "--host", "0.0.0.0", "--port", "8000"]
