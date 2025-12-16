@@ -22,4 +22,5 @@ COPY src ./src
 
 EXPOSE 8000
 
-CMD ["uvicorn", "src.sa.app:app", "--host", "0.0.0.0", "--port", "8000"]
+ENTRYPOINT ["python", "-m", "awslambdaric"]
+CMD ["app.handler"]
