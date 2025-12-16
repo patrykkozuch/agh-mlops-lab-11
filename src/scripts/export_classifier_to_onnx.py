@@ -1,3 +1,5 @@
+import os
+
 import joblib
 from skl2onnx import convert_sklearn
 from skl2onnx.common.data_types import FloatTensorType
@@ -24,4 +26,6 @@ def export_classifier_to_onnx(settings: Settings):
 
 if __name__ == "__main__":
     settings = Settings()
+
+    os.makedirs(settings.MODELS_PATH, exist_ok=True)
     export_classifier_to_onnx(settings)

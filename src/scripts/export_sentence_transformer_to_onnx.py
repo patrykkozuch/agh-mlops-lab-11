@@ -69,4 +69,6 @@ def export_model_to_onnx(settings: Settings):
 
 if __name__ == "__main__":
     settings = Settings()
+
+    os.makedirs(settings.MODELS_PATH, exist_ok=True)
     export_model_to_onnx(settings)
