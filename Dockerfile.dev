@@ -5,11 +5,11 @@ WORKDIR /app
 
 COPY pyproject.toml uv.lock .python-version ./
 RUN --mount=type=cache,target=/root/.cache/uv \
-    uv sync --locked --group inference --no-editable --no-install-project
+    uv sync --locked --all-groups --no-editable --no-install-project
 
 COPY src ./src
 RUN --mount=type=cache,target=/root/.cache/uv \
-    uv sync --locked --group inference --no-editable
+    uv sync --locked --all-groups --no-editable
 
 FROM python:3.13-slim-bookworm AS production
 ENV PATH="/app/.venv/bin:$PATH"
@@ -20,6 +20,6 @@ COPY --from=builder /app/.venv /app/.venv
 COPY models ./models
 COPY src ./src
 
-EXPOSE 8000a
+EXPOSE 8000
 
 CMD ["uvicorn", "src.sa.app:app", "--host", "0.0.0.0", "--port", "8000"]
