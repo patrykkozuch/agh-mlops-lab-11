@@ -1304,6 +1304,7 @@ source = { editable = "." }
 dependencies = [
     { name = "fastapi", extra = ["standard"] },
     { name = "httpx" },
+    { name = "numpy" },
     { name = "pydantic-settings" },
 ]
 
@@ -1335,6 +1336,7 @@ inference = [
 requires-dist = [
     { name = "fastapi", extras = ["standard"], specifier = ">=0.119.0" },
     { name = "httpx", specifier = ">=0.28.1" },
+    { name = "numpy", specifier = ">=2.3.5" },
     { name = "pydantic-settings", specifier = ">=2.12.0" },
 ]
 
