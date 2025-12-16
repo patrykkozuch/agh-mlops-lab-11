@@ -1,5 +1,5 @@
 import os
-from settings import Settings
+from sa.settings import Settings
 import torch
 from transformers import AutoTokenizer, AutoModel
 
@@ -65,6 +65,7 @@ def export_model_to_onnx(settings: Settings):
 
     print(f"ONNX model exported to {onnx_path}")
     return onnx_path
+
 
 if __name__ == "__main__":
     settings = Settings()
