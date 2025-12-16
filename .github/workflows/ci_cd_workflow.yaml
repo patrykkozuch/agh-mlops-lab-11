@@ -54,6 +54,14 @@ jobs:
         with:
           mask-password: 'true'
 
+      - name: Download artifacts from S3
+        run: uv run src/scripts/download_artifacts.py
+
+      - name: Export models to ONNX
+        run: |
+          uv run src/scripts/export_classifier_to_onnx.py
+          uv run src/scripts/export_sentence_transformer_to_onnx.py
+
       - name: Build and Push Docker image
         env:
           REGISTRY: ${{ steps.login-ecr.outputs.registry }}
